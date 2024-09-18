@@ -8,41 +8,31 @@ public class App
     {
         Scanner scanner = new Scanner(System.in);
 
-        // // Make your first Hello World app!
-        // System.out.println("Hello World!");
+        System.out.println("Ievadiet pirmo skaitli: ");
+        int number1 = Integer.valueOf(scanner.nextLine());
 
-        // // Reference data type
-        // String name = "John";
+        System.out.println("Ievadiet otro skaitli: ");
+        int number2 = Integer.valueOf(scanner.nextLine());
 
-        // // Primitive data types
-        // int age = 25;
+        // Izvada divu skaitļu summu
+        int sum = number1 + number2;
+        // Izvada divu skaitļu reizinājumu
+        int multi = number1 * number2;
+        // Izvada divu skaitļu dalījumu
+        double div = (double) number1 / number2;
+        // Izvada divu skaitlu starpību
+        int sub = number1 - number2;
+        // Izvada divu skaitļu vidējo vērtību
+        double avg = (double) (number1 + number2) / 2;
 
-        // // Primitive data types
-        // boolean isOnline = true;
+        // Izvada rezultātus
+        System.out.println(number1 + " + " + number2 + " = " + sum);
+        System.out.println(number1 + " - " + number2 + " = " + sub);
+        System.out.println(number1 + " * " + number2 + " = " + multi);
+        System.out.println(number1 + " / " + number2 + " = " + div);
+        System.out.println("Videja vertiba: " + avg);
 
-        // System.out.println(name);
-        // System.out.println(age);
-        // System.out.println(isOnline);
-
-
-
-        // System.out.println("Ievadi tekstu:");
-
-        // String message = scanner.nextLine();
-
-        // // String concatenation
-        // System.out.println("Input: " + message);
-
-        System.out.println("Ievadiet savu vardu:");
-        String name = scanner.nextLine();
-
-        System.out.println("Ievadiet savu uzvardu:");
-        String lastname = scanner.nextLine();
-
-        System.out.println("Ievadiet savu grupu:");
-        String group = scanner.nextLine();
-
-        System.out.println("Students: " + name + " " + lastname + ", grupa: " + group);
+        scanner.close();
     }
 
 }

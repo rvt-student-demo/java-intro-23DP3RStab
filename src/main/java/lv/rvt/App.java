@@ -8,29 +8,22 @@ public class App
     {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Value of the gift?");
+        int sum = 0;
+        int count = 0;
 
-        int cena = Integer.valueOf(scanner.nextLine());
-
-        double tax;
-
-        if (cena >= 1000000) {
-            tax = 142100 + 0.17 * (cena - 1000000);
-            System.out.println("Tax: " + tax);
-        } else if (cena >= 200000) {
-            tax = 22100 + 0.15 * (cena - 200000);
-            System.out.println("Tax: " + tax);
-        } else if (cena >= 55000) {
-            tax = 4700 + 0.12 * (cena - 55000);
-            System.out.println("Tax: " + tax);
-        } else if (cena >= 25000) {
-            tax = 1700 + 0.1 * (cena - 25000);
-            System.out.println("Tax: " + tax);
-        } else if (cena >= 5000) {
-            tax = 100 + 0.08 * (cena - 5000);
-            System.out.println("Tax: " + tax);
-        } else {
-            System.out.println("No tax!");
+        while (true) {
+            System.out.println("Give me a number: ");
+            int input = Integer.valueOf(scanner.nextLine());
+            
+            if (input != 0) {
+                sum = sum + input;
+                count = count + 1;
+                continue;
+            } else {
+                System.out.println("Number of numbers: " + count);
+                System.out.println("Sum of the numbers: " + sum);
+                break;
+            }
         }
 
 

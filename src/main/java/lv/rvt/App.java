@@ -8,11 +8,18 @@ public class App
     {
         Scanner scanner = new Scanner(System.in);
 
-        int n = Integer.valueOf(scanner.nextLine());
+        System.out.print("Last number? ");
 
-        for (int i = 0; i < n+1; i++) {
-            System.out.println(i);
+        int lastNumber = Integer.valueOf(scanner.nextLine());
+
+        int sum = 0;
+
+        for (int i = 1; i <= lastNumber; i++) {
+            sum += i;
         }
+
+        System.out.println("The sum is " + sum);
+
 
         scanner.close();
     }

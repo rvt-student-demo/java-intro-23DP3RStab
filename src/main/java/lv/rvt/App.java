@@ -8,38 +8,19 @@ public class App
     {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Give numbers:");
+        System.out.println("How many times?");
 
-        int sum = 0;
-        int nums = 0;
-        int even = 0;
-        int odd = 0;
-
-        while (true) {
-            int input = Integer.valueOf(scanner.nextLine());
-
-            if (input == -1) {
-                System.out.println("Thx! Bye!");
-                System.out.println("Sum: " + sum);
-                System.out.println("Numbers: " + nums);
-                System.out.println("Average: " + (double)sum / nums);
-                System.out.println("Even: " + even);
-                System.out.println("Odd: " + odd);
-                break;
-            }
-
-            if (input % 2 == 0) {
-                even++;
-            } else {
-                odd++;
-            }
-
-            sum += input;
-            nums++;
-            
-        }
+        int n = Integer.valueOf(scanner.nextLine());
+        
+        printText(n);
 
         scanner.close();
+    }
+
+    public static void printText(int n) {
+        for (int i = 0; i < n; i++) {
+            System.out.println("In a hole in the ground there lived a method");
+        }
     }
 
 }

@@ -8,20 +8,17 @@ public class App
     {
         Scanner scanner = new Scanner(System.in);
 
-        int begin = Integer.valueOf(scanner.nextLine());
-        int end = Integer.valueOf(scanner.nextLine());
+        Stars.printStars(5);
+        Stars.printStars(3);
+        Stars.printStars(9);
 
-        System.out.println("");
+        Stars.printSquare(4);
 
-        divisableByThreeInRange(begin, end);
+        Stars.printRectangle(17, 3);
+        
+        Stars.printTriangle(4);
 
         scanner.close();
-    }
-
-    public static void printText(int n) {
-        for (int i = 0; i < n; i++) {
-            System.out.println("In a hole in the ground there lived a method");
-        }
     }
 
     public static void divisableByThreeInRange(int beginning, int end) {

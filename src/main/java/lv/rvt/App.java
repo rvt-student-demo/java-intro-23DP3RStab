@@ -8,15 +8,7 @@ public class App
     {
         Scanner scanner = new Scanner(System.in);
 
-        Stars.printStars(5);
-        Stars.printStars(3);
-        Stars.printStars(9);
-
-        Stars.printSquare(4);
-
-        Stars.printRectangle(17, 3);
-        
-        Stars.printTriangle(4);
+        Stars.christmasTree(8);
 
         scanner.close();
     }

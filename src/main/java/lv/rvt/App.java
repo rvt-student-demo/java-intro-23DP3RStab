@@ -1,30 +1,36 @@
 package lv.rvt;
 
-import java.util.ArrayList;
+import java.util.ArrayList;     
 import java.util.Scanner;
 
 public class App 
 {
     public static void main( String[] args )
     {
-        Scanner numbers = new Scanner(System.in);
-        ArrayList<Integer> numberList = new ArrayList<>();
+        Scanner s = new Scanner(System.in);
+        ArrayList<Integer> numbers = new ArrayList<>();
 
-        System.out.println("ievadi ciparus atdalot ar ,");
-        String input = numbers.nextLine();
-        String[] parts = input.split(",");
+        System.out.println("Ievadi ciparus:");
+        while(true) {
+            int number = Integer.valueOf(s.nextLine());
 
-        for (String part : parts) {
-            numberList.add(Integer.parseInt(part.trim()));
+            if (number == -1) {
+                break;
+            }
+
+            numbers.add(number);
         }
-        int sum = 0;
-        for (Integer i : numberList) {
-            sum += i;
-        }
-        System.out.println(numberList);
-        System.out.println("Summa: " + sum);
 
-        numbers.close();
+        System.out.print("From where? ");
+        int beginning = Integer.valueOf(s.nextLine());
+        System.out.print("To where? ");
+        int end = Integer.valueOf(s.nextLine());
+
+        for(int index = beginning; index <= end; index++) {
+            System.out.println(numbers.get(index));
+        }
+
+        s.close();
     }
 
     public static void divisableByThreeInRange(int beginning, int end) {

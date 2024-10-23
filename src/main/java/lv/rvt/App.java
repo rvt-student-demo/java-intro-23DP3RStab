@@ -10,7 +10,7 @@ public class App
         Scanner s = new Scanner(System.in);
         ArrayList<Integer> numbers = new ArrayList<>();
 
-        System.out.println("Ievadi ciparus:");
+        System.out.println("Enter numbers:");
         while(true) {
             int number = Integer.valueOf(s.nextLine());
 
@@ -21,16 +21,27 @@ public class App
             numbers.add(number);
         }
 
-        System.out.print("From where? ");
-        int beginning = Integer.valueOf(s.nextLine());
-        System.out.print("To where? ");
-        int end = Integer.valueOf(s.nextLine());
-
-        for(int index = beginning; index <= end; index++) {
-            System.out.println(numbers.get(index));
+        try {
+            System.out.print("From where? ");
+            int beginning = Integer.valueOf(s.nextLine());
+            System.out.print("To where? ");
+            int end = Integer.valueOf(s.nextLine());
+            
+            for(int index = beginning; index <= end; index++) {
+                System.out.println(numbers.get(index));
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid number.");
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Invalid index. Please enter a valid index.");
+        } finally {
+            s.close();
         }
 
-        s.close();
+        
+
+        
+
     }
 
     public static void divisableByThreeInRange(int beginning, int end) {

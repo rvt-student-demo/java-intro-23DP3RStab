@@ -1,6 +1,7 @@
 package lv.rvt;
 
-import java.util.ArrayList;     
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class App 
@@ -8,39 +9,40 @@ public class App
     public static void main( String[] args )
     {
         Scanner s = new Scanner(System.in);
-        ArrayList<Integer> numbers = new ArrayList<>();
+        ArrayList<String[]> dati = new ArrayList<>();
+        
+        while (true) {
+            String input = s.nextLine();
 
-        System.out.println("Enter numbers:");
-        while(true) {
-            int number = Integer.valueOf(s.nextLine());
-
-            if (number == -1) {
+            if (input.isEmpty()) {
                 break;
             }
 
-            numbers.add(number);
+            dati.add(input.split(","));
+
         }
 
-        try {
-            System.out.print("From where? ");
-            int beginning = Integer.valueOf(s.nextLine());
-            System.out.print("To where? ");
-            int end = Integer.valueOf(s.nextLine());
-            
-            for(int index = beginning; index <= end; index++) {
-                System.out.println(numbers.get(index));
+        String longestString = "";
+        int summa = 0;
+        int count = 0;
+
+        for (String[] data : dati) {   
+            if (data.length > 0 && data[0].length() > longestString.length()) {
+                longestString = data[0];
             }
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter a valid number.");
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("Invalid index. Please enter a valid index.");
-        } finally {
-            s.close();
         }
 
-        
+        for (String[] data : dati) {
+            for (int i = 0; i < dati.size(); i++) {
+                summa += Integer.parseInt(data[1]);
+                count++;
+            }
+        }
 
-        
+        System.out.println("Longest name: " + longestString);
+        System.out.println("Average of the birth years: " + 1.0 * summa / count);
+
+        s.close();
 
     }
 
@@ -50,6 +52,34 @@ public class App
                 System.out.println(i);
             }
         }
+    }
+
+    public static void printNumbersInRange(ArrayList<Integer> numbers, int lowerLimit, int upperLimit) {
+        for (int number : numbers) {
+            if (number >= lowerLimit && number <= upperLimit) {
+                System.out.println(number);
+            }
+        }
+    }
+
+    public static int[] bubbleSort(int[] intArr) {
+        int length = intArr.length;
+
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < length - 1; j++) {
+                if (intArr[j] > intArr[j + 1]) {
+                    int temp = intArr[j];
+                    intArr[j] = intArr[j + 1];
+                    intArr[j + 1] = temp;
+                }
+            }
+        }
+
+        for (int skaitlis : intArr) {
+            System.out.print(skaitlis + " ");
+        }
+
+        return intArr;
     }
 
 }

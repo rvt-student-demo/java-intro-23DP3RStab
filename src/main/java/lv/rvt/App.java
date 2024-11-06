@@ -8,22 +8,16 @@ public class App
     public static void main( String[] args )
     {
         Scanner s = new Scanner(System.in);
-        
-        Account artosAccount = new Account("Arto's account", 100.00);
-        Account artosSwissAccount = new Account("Arto's account in Switzerland", 1000000.00);
 
-        System.out.println("Initial state");
-        System.out.println(artosAccount);
-        System.out.println(artosSwissAccount);
+        Account matthewsAccount = new Account("Matthews account", 1000);
+        Account myAccount = new Account("My account", 0);
 
-        artosAccount.withdraw(20);
-        System.out.println("The balance of Arto's account is now: " + artosAccount.balance());
-        artosSwissAccount.deposit(200);
-        System.out.println("The balance of Arto's other account is now: " + artosSwissAccount.balance());
+        matthewsAccount.withdraw(100);
+        myAccount.deposit(100);
 
-        System.out.println("End state");
-        System.out.println(artosAccount);
-        System.out.println(artosSwissAccount);
+        System.out.println(matthewsAccount);
+        System.out.println("-----------------------------");
+        System.out.println(myAccount);
 
         s.close();
 

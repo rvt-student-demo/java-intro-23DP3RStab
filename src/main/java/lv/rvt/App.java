@@ -1,7 +1,6 @@
 package lv.rvt;
 
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
 
 public class App 
@@ -9,44 +8,29 @@ public class App
     public static void main( String[] args )
     {
         Scanner s = new Scanner(System.in);
-        ArrayList<String[]> dati = new ArrayList<>();
         
-        while (true) {
-            String input = s.nextLine();
+        Account artosAccount = new Account("Arto's account", 100.00);
+        Account artosSwissAccount = new Account("Arto's account in Switzerland", 1000000.00);
 
-            if (input.isEmpty()) {
-                break;
-            }
+        System.out.println("Initial state");
+        System.out.println(artosAccount);
+        System.out.println(artosSwissAccount);
 
-            dati.add(input.split(","));
+        artosAccount.withdraw(20);
+        System.out.println("The balance of Arto's account is now: " + artosAccount.balance());
+        artosSwissAccount.deposit(200);
+        System.out.println("The balance of Arto's other account is now: " + artosSwissAccount.balance());
 
-        }
-
-        String longestString = "";
-        int summa = 0;
-        int count = 0;
-
-        for (String[] data : dati) {   
-            if (data.length > 0 && data[0].length() > longestString.length()) {
-                longestString = data[0];
-            }
-        }
-
-        for (String[] data : dati) {
-            for (int i = 0; i < dati.size(); i++) {
-                summa += Integer.parseInt(data[1]);
-                count++;
-            }
-        }
-
-        System.out.println("Longest name: " + longestString);
-        System.out.println("Average of the birth years: " + 1.0 * summa / count);
+        System.out.println("End state");
+        System.out.println(artosAccount);
+        System.out.println(artosSwissAccount);
 
         s.close();
 
     }
 
-    public static void divisableByThreeInRange(int beginning, int end) {
+    public static void divisableByThreeInRange(int beginning, int end)
+    {
         for (int i = beginning; i <= end; i++) {
             if (i % 3 == 0) {
                 System.out.println(i);
@@ -54,7 +38,8 @@ public class App
         }
     }
 
-    public static void printNumbersInRange(ArrayList<Integer> numbers, int lowerLimit, int upperLimit) {
+    public static void printNumbersInRange(ArrayList<Integer> numbers, int lowerLimit, int upperLimit)
+    {
         for (int number : numbers) {
             if (number >= lowerLimit && number <= upperLimit) {
                 System.out.println(number);
@@ -62,7 +47,8 @@ public class App
         }
     }
 
-    public static int[] bubbleSort(int[] intArr) {
+    public static int[] bubbleSort(int[] intArr)
+    {
         int length = intArr.length;
 
         for (int i = 0; i < length; i++) {
@@ -81,5 +67,4 @@ public class App
 
         return intArr;
     }
-
 }

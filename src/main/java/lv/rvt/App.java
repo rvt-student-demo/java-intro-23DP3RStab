@@ -9,8 +9,46 @@ public class App
     {
         Scanner s = new Scanner(System.in);
 
-        Product banana = new Product("Banana", 1.1, 13);
-        banana.printProduct();
+        DecreasingCounter counter1 = new DecreasingCounter(10);
+
+        counter1.printValue();
+
+        counter1.decrement();
+        counter1.printValue();
+
+        counter1.decrement();
+        counter1.printValue();
+
+        
+        System.out.println();
+
+
+        DecreasingCounter counter2 = new DecreasingCounter(2);
+
+        counter2.printValue();
+
+        counter2.decrement();
+        counter2.printValue();
+
+        counter2.decrement();
+        counter2.printValue();
+
+        counter2.decrement();
+        counter2.printValue();
+
+
+        System.out.println();
+
+
+        DecreasingCounter counter3 = new DecreasingCounter(100);
+
+        counter3.printValue();
+
+        counter3.reset();
+        counter3.printValue();
+
+        counter3.decrement();
+        counter3.printValue();
 
         s.close();
 

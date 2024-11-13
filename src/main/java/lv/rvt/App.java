@@ -9,47 +9,29 @@ public class App
     {
         Scanner s = new Scanner(System.in);
 
-        DecreasingCounter counter1 = new DecreasingCounter(10);
-
-        counter1.printValue();
-
-        counter1.decrement();
-        counter1.printValue();
-
-        counter1.decrement();
-        counter1.printValue();
-
+        Statistics statistics = new Statistics();
+        Statistics statsOdd = new Statistics();
+        Statistics statsEven = new Statistics();
         
-        System.out.println();
+        while (true) {
+            int input = Integer.valueOf(s.nextLine());
 
+            if (input == -1) {
+                break;
+            }
 
-        DecreasingCounter counter2 = new DecreasingCounter(2);
+            statistics.addNumber(input);
 
-        counter2.printValue();
+            if (input % 2 == 0) {
+                statsEven.addNumber(input);
+            } else {
+                statsOdd.addNumber(input);
+            }
+        }
 
-        counter2.decrement();
-        counter2.printValue();
-
-        counter2.decrement();
-        counter2.printValue();
-
-        counter2.decrement();
-        counter2.printValue();
-
-
-        System.out.println();
-
-
-        DecreasingCounter counter3 = new DecreasingCounter(100);
-
-        counter3.printValue();
-
-        counter3.reset();
-        counter3.printValue();
-
-        counter3.decrement();
-        counter3.printValue();
-
+        System.out.println("Sum: " + statistics.sum());
+        System.out.println("Sum of even numbers: " + statsEven.sum());
+        System.out.println("Sum of odd numbers: " + statsOdd.sum());
         s.close();
 
     }

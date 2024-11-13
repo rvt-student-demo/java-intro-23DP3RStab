@@ -9,29 +9,31 @@ public class App
     {
         Scanner s = new Scanner(System.in);
 
-        Statistics statistics = new Statistics();
-        Statistics statsOdd = new Statistics();
-        Statistics statsEven = new Statistics();
+        PaymentCard paulsCard = new PaymentCard(20);
+        PaymentCard mattsCard = new PaymentCard(30);
+
+        paulsCard.eatHeartily();
+        mattsCard.eatAffordably();
+
+        System.out.println(paulsCard);
+        System.out.println(mattsCard);
         
-        while (true) {
-            int input = Integer.valueOf(s.nextLine());
+        paulsCard.addMoney(20);
+        mattsCard.eatHeartily();
+        
+        System.out.println(paulsCard);
+        System.out.println(mattsCard);
+        
+        paulsCard.eatAffordably();
+        paulsCard.eatAffordably();
+        
+        mattsCard.addMoney(50);
+        
+        System.out.println(paulsCard);
+        System.out.println(mattsCard);
 
-            if (input == -1) {
-                break;
-            }
 
-            statistics.addNumber(input);
 
-            if (input % 2 == 0) {
-                statsEven.addNumber(input);
-            } else {
-                statsOdd.addNumber(input);
-            }
-        }
-
-        System.out.println("Sum: " + statistics.sum());
-        System.out.println("Sum of even numbers: " + statsEven.sum());
-        System.out.println("Sum of odd numbers: " + statsOdd.sum());
         s.close();
 
     }

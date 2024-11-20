@@ -8,30 +8,32 @@ public class App
     public static void main( String[] args )
     {
         Scanner s = new Scanner(System.in);
+        ArrayList<Book> books = new ArrayList<>();
 
-        PaymentCard paulsCard = new PaymentCard(20);
-        PaymentCard mattsCard = new PaymentCard(30);
 
-        paulsCard.eatHeartily();
-        mattsCard.eatAffordably();
+        while (true) {
+            System.out.print("Title: ");
+            String title = s.nextLine();
 
-        System.out.println("Paul: " + paulsCard);
-        System.out.println("Matt: " + mattsCard);
-        
-        paulsCard.addMoney(20);
-        mattsCard.eatHeartily();
-        
-        System.out.println("Paul: " + paulsCard);
-        System.out.println("Matt: " + mattsCard);
-        
-        paulsCard.eatAffordably();
-        paulsCard.eatAffordably();
-        
-        mattsCard.addMoney(50);
-        
-        System.out.println("Paul: " + paulsCard);
-        System.out.println("Matt: " + mattsCard);
+            if (title.isEmpty()) {
+                break;
+            }
 
+            System.out.print("Pages: ");
+            int pages = Integer.valueOf(s.nextLine());
+
+            System.out.print("Publication year: ");
+            int publicationYear = Integer.valueOf(s.nextLine());
+
+            books.add(new Book(title, pages, publicationYear));
+        }
+
+        System.out.print("What information will be printed? ");
+        String choice = s.nextLine();
+
+        for (Book book : books) {
+            book.whatToPrint(choice);
+        }
 
 
         s.close();

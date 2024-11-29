@@ -7,36 +7,24 @@ public class App
 {
     public static void main( String[] args )
     {
-        Scanner s = new Scanner(System.in);
-        ArrayList<Book> books = new ArrayList<>();
-
+        // Scanner s = new Scanner(System.in);
+        
+        Timer timer = new Timer();
 
         while (true) {
-            System.out.print("Title: ");
-            String title = s.nextLine();
+            System.out.println(timer);
+            timer.advance();
 
-            if (title.isEmpty()) {
-                break;
+            try {
+                Thread.sleep(10);
+            } catch (Exception e) {
+
             }
-
-            System.out.print("Pages: ");
-            int pages = Integer.valueOf(s.nextLine());
-
-            System.out.print("Publication year: ");
-            int publicationYear = Integer.valueOf(s.nextLine());
-
-            books.add(new Book(title, pages, publicationYear));
-        }
-
-        System.out.print("What information will be printed? ");
-        String choice = s.nextLine();
-
-        for (Book book : books) {
-            book.whatToPrint(choice);
         }
 
 
-        s.close();
+
+        // s.close();
 
     }
 

@@ -9,24 +9,24 @@ public class App
     {
         Scanner s = new Scanner(System.in);
         
-        HealthStation childrensHospital = new HealthStation();
+        PaymentTerminal unicafeExactum = new PaymentTerminal();
+        System.out.println(unicafeExactum);
 
-        Person ethan = new Person("Ethan", 1, 110, 7);
-        Person peter = new Person("Peter", 33, 176, 85);
+        PaymentCard annesCard = new PaymentCard(2);
 
-        System.out.println("weighings performed: " + childrensHospital.weighings());
+        System.out.println("amount of money on the card is " + annesCard.balance() + " euros");
 
-        childrensHospital.weigh(ethan);
-        childrensHospital.weigh(peter);
+        boolean wasSuccessful = unicafeExactum.eatHeartily(annesCard);
+        System.out.println("there was enough money: " + wasSuccessful);
 
-        System.out.println("weighings performed: " + childrensHospital.weighings());
+        unicafeExactum.addMoneyToCard(annesCard, 100);
 
-        childrensHospital.weigh(ethan);
-        childrensHospital.weigh(ethan);
-        childrensHospital.weigh(ethan);
-        childrensHospital.weigh(ethan);
+        wasSuccessful = unicafeExactum.eatHeartily(annesCard);
+        System.out.println("there was enough money: " + wasSuccessful);
 
-        System.out.println("weighings performed: " + childrensHospital.weighings());
+        System.out.println("amount of money on the card is " + annesCard.balance() + " euros");
+
+        System.out.println(unicafeExactum);
 
 
 

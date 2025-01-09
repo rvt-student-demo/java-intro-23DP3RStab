@@ -5,9 +5,15 @@ public class Person {
     private int age;
     private int weight;
     private int height;
-
+    private SimpleDate birthday;
+    
     public Person(String name) {
         this(name, 0, 0, 0);
+    }
+    
+    public Person(String name, SimpleDate birthday, int weight, int age) {
+        this(name, age, 0, weight);
+        this.birthday = birthday;
     }
 
     public Person(String name, int age, int height, int weight) {
@@ -48,6 +54,28 @@ public class Person {
 
     public int getWeight() {
         return this.weight;
+    }
+
+    @Override
+    public boolean equals(Object compared) {
+        if (this == compared) {
+            return true;
+        }
+
+        if (!(compared instanceof Person)) {
+            return false;
+        }
+
+        Person comparedPerson = (Person) compared;
+
+        if (this.name.equals(comparedPerson.name) &&
+            this.age == comparedPerson.age &&
+            this.weight == comparedPerson.weight &&
+            this.height == comparedPerson.height && this.birthday.equals(comparedPerson.birthday)) {
+            return true;
+        }
+
+        return false;
     }
 
     @Override

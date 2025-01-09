@@ -9,24 +9,21 @@ public class App
     {
         Scanner s = new Scanner(System.in);
         
-        PaymentTerminal unicafeExactum = new PaymentTerminal();
-        System.out.println(unicafeExactum);
+        SimpleDate date = new SimpleDate(24, 3, 2017);
+        SimpleDate date2 = new SimpleDate(23, 7, 2017);
 
-        PaymentCard annesCard = new PaymentCard(2);
+        Person leo = new Person("Leo", date, 62, 9);
+        Person lily = new Person("Lily", date2, 65, 8);
 
-        System.out.println("amount of money on the card is " + annesCard.balance() + " euros");
+        if (leo.equals(lily)) {
+            System.out.println("Is this quite correct?");
+        }
 
-        boolean wasSuccessful = unicafeExactum.eatHeartily(annesCard);
-        System.out.println("there was enough money: " + wasSuccessful);
+        Person leoWithDifferentWeight = new Person("Leo", date, 62, 10);
 
-        unicafeExactum.addMoneyToCard(annesCard, 100);
-
-        wasSuccessful = unicafeExactum.eatHeartily(annesCard);
-        System.out.println("there was enough money: " + wasSuccessful);
-
-        System.out.println("amount of money on the card is " + annesCard.balance() + " euros");
-
-        System.out.println(unicafeExactum);
+        if (leo.equals(leoWithDifferentWeight)) {
+            System.out.println("Is this quite correct?");
+        }
 
 
 

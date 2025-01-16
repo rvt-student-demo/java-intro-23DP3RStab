@@ -9,21 +9,24 @@ public class App
     {
         Scanner s = new Scanner(System.in);
         
-        SimpleDate date = new SimpleDate(24, 3, 2017);
-        SimpleDate date2 = new SimpleDate(23, 7, 2017);
+        Box box = new Box(2.5, 5.0, 6.0);
+        System.out.println("Original Box:");
+        System.out.println("Volume: " + box.volume());
+        System.out.println("Area: " + box.area());
 
-        Person leo = new Person("Leo", date, 62, 9);
-        Person lily = new Person("Lily", date2, 65, 8);
+        Box biggerBox = box.biggerBox(box);
+        System.out.println("\nBigger Box:");
+        System.out.println("Volume: " + biggerBox.volume());
+        System.out.println("Area: " + biggerBox.area());
 
-        if (leo.equals(lily)) {
-            System.out.println("Is this quite correct?");
-        }
+        Box smallerBox = box.smallerBox(box);
+        System.out.println("\nSmaller Box:");
+        System.out.println("Volume: " + smallerBox.volume());
+        System.out.println("Area: " + smallerBox.area());
 
-        Person leoWithDifferentWeight = new Person("Leo", date, 62, 10);
-
-        if (leo.equals(leoWithDifferentWeight)) {
-            System.out.println("Is this quite correct?");
-        }
+        System.out.println("\nDoes the original box nest inside the bigger box? " + box.nests(biggerBox));
+        System.out.println("Does the smaller box nest inside the original box? " + smallerBox.nests(box));
+        System.out.println("Does the bigger box nest inside the original box? " + biggerBox.nests(box));
 
 
 

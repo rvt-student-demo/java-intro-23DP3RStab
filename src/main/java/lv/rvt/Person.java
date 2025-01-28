@@ -2,10 +2,11 @@ package lv.rvt;
 
 public class Person {
     private String name;
+    private SimpleDate birthday;
+    private String address;
     private int age;
     private int weight;
     private int height;
-    private SimpleDate birthday;
     
     public Person(String name) {
         this(name, 0, 0, 0);
@@ -21,6 +22,11 @@ public class Person {
         this.age = age;
         this.weight = weight;
         this.height = height;
+    }
+
+    public Person(String name, String address) {
+        this(name, 0, 0, 0);
+        this.address = address;
     }
 
     public String getName() {
@@ -80,6 +86,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return this.name + ", age " + this.age + " years";
+        return this.name + " \n  " + this.address;
     }
 }

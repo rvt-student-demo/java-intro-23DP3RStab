@@ -9,26 +9,11 @@ public class App
     {
         Scanner s = new Scanner(System.in);
         
-        Box box = new Box(2.5, 5.0, 6.0);
-        System.out.println("Original Box:");
-        System.out.println("Volume: " + box.volume());
-        System.out.println("Area: " + box.area());
+        ArrayList<Person> persons = new ArrayList<Person>();
+        persons.add(new Teacher("Ada Lovelace", "24 Maddox St. London W1S 2QN", 1200));
+        persons.add(new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028"));
 
-        Box biggerBox = box.biggerBox(box);
-        System.out.println("\nBigger Box:");
-        System.out.println("Volume: " + biggerBox.volume());
-        System.out.println("Area: " + biggerBox.area());
-
-        Box smallerBox = box.smallerBox(box);
-        System.out.println("\nSmaller Box:");
-        System.out.println("Volume: " + smallerBox.volume());
-        System.out.println("Area: " + smallerBox.area());
-
-        System.out.println("\nDoes the original box nest inside the bigger box? " + box.nests(biggerBox));
-        System.out.println("Does the smaller box nest inside the original box? " + smallerBox.nests(box));
-        System.out.println("Does the bigger box nest inside the original box? " + biggerBox.nests(box));
-
-
+        printPersons(persons);
 
         s.close();
 
@@ -71,5 +56,12 @@ public class App
         }
 
         return intArr;
+    }
+
+    public static void printPersons(ArrayList<Person> persons)
+    {
+        for (Person person : persons) {
+            System.out.println(person);
+        }
     }
 }

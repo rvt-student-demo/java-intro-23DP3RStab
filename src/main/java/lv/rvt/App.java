@@ -9,12 +9,14 @@ public class App
     {
         Scanner s = new Scanner(System.in);
         
-        ProductWarehouseWithHistory juice = new ProductWarehouseWithHistory("Juice", 1000.0, 1000.0);
-        juice.takeFromWarehouse(11.3);
-        juice.addToWarehouse(1.0);
-        //System.out.println(juice.history()); // [1000.0, 988.7, 989.7]
-        
-        juice.printAnalysis();
+        ArrayList<GeometricShape> lists = new ArrayList<>();
+
+        lists.add(new Circle(2.5));
+        lists.add(new Triangle(2.5, 3.5, 5));
+
+        for (GeometricShape geometricShape : lists) {
+            geometricShape.displayInfo();
+        }
 
         s.close();
 

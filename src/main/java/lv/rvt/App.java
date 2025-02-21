@@ -10,18 +10,10 @@ public class App
 {
     public static void main( String[] args ) throws Exception
     {
-        BufferedReader reader = Helper.getReader("persons.csv");
-        // reader.readLine();
-        // System.out.println(reader.readLine());
-        // System.out.println(reader.readLine());
-
-        String line;
-
-        while ((line = reader.readLine()) != null) {
-            System.out.println(line);
+        ArrayList<Person> personList = PersonManager.getPersonList();
+        for (Person person : personList) {
+            System.out.println(person);
         }
-
-        System.out.println("Visas rindas ir izlasitas!");
     }
 
     public static void divisableByThreeInRange(int beginning, int end)

@@ -24,6 +24,14 @@ public class Person {
         this.height = height;
     }
 
+    public Person(String name, int age, int weight, int height, String address) {
+        this.name = name;
+        this.age = age;
+        this.weight = weight;
+        this.height = height;
+        this.address = address;
+    }
+    
     public Person(String name, String address) {
         this(name, 0, 0, 0);
         this.address = address;

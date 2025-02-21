@@ -1,25 +1,27 @@
 package lv.rvt;
 
+import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import lv.rvt.tools.Helper;
+
 public class App    
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws Exception
     {
-        Scanner s = new Scanner(System.in);
-        
-        ArrayList<GeometricShape> lists = new ArrayList<>();
+        BufferedReader reader = Helper.getReader("persons.csv");
+        // reader.readLine();
+        // System.out.println(reader.readLine());
+        // System.out.println(reader.readLine());
 
-        lists.add(new Circle(2.5));
-        lists.add(new Triangle(2.5, 3.5, 5));
+        String line;
 
-        for (GeometricShape geometricShape : lists) {
-            geometricShape.displayInfo();
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
         }
 
-        s.close();
-
+        System.out.println("Visas rindas ir izlasitas!");
     }
 
     public static void divisableByThreeInRange(int beginning, int end)
